@@ -6,7 +6,7 @@ public class Data{
 	private int page;
 	private int per_page;
 	private int total;
-	private int total_page;
+	private int total_pages;
 	private List<User> data;
 	private Ad ad;
 	
@@ -42,12 +42,12 @@ public class Data{
 		this.total = total;
 	}
 
-	public int getTotal_page() {
-		return total_page;
+	public int gettotal_pages() {
+		return total_pages;
 	}
 
-	public void setTotal_page(int total_page) {
-		this.total_page = total_page;
+	public void settotal_pages(int total_pages) {
+		this.total_pages = total_pages;
 	}
 
 	public List<User> getData() {
@@ -64,7 +64,7 @@ public class Data{
         return	"page: " + page + "\n" +
         		"per_ page: " + per_page + "\n" +
         		"total: " + total + "\n" +
-        		"total_page: " + total_page + "\n" +
+        		"total_pages: " + total_pages + "\n" +
         		"data: " + data + "\n" +
         		"ad: " + ad;
     }

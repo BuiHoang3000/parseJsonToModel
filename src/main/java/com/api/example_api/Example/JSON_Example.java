@@ -19,11 +19,16 @@ public class JSON_Example {
 	public static Data getData(String url) throws ClientProtocolException, IOException {
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(url);
+		try {
 		httpGet.addHeader("accept","application/json");
 		HttpResponse response = httpClient.execute(httpGet);
 		String data = readData(response);
 		Gson gson = new Gson();
 		return gson.fromJson(data, Data.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public static List<Data> getDataList(String url) throws ClientProtocolException, IOException {
@@ -63,6 +68,8 @@ public class JSON_Example {
 		try {
 			Data data = getData("https://reqres.in/api/users?page=2");
 			System.out.println(data);
+			//List<User> s = data.getData();
+			//System.out.println(s.get(0).getEmail());
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
